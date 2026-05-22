@@ -1,3 +1,21 @@
+// progress bar
+const progressBar = document.getElementById("progressBar");
+
+window.addEventListener('scroll', () => {
+
+    const scrollTop = window.scrollY;
+    
+    const documentHeight = document.documentElement.scrollHeight;
+
+    const windowHeight = window.innerHeight;
+
+    let scrollPercent = ( scrollTop / ( documentHeight - windowHeight )) * 100;
+
+    progressBar.style.width = scrollPercent + "%" ;
+
+})
+
+
 // menu button toggle
 const menuBtn = document.getElementById("menuBtn");
 
