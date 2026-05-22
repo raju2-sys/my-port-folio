@@ -626,6 +626,19 @@ section{
 
 
 
+@media screen and (max-width : 480px){
+
+    .hero{
+
+        min-height: 50vh;
+        
+    }
+    
+}
+
+
+
+
 @media screen and (min-width : 320px) and (max-width : 768px) {
 
     .menuBtn{
@@ -709,14 +722,4 @@ section{
         padding: 30px 10px;
 
     }
-}
-
-@media screen and (max-width : 480px){
-
-    .hero{
-
-        min-height: 50vh;
-        
-    }
-    
 }
