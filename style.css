@@ -710,3 +710,13 @@ section{
 
     }
 }
+
+@media screen and (max-width : 480px){
+
+    .hero{
+
+        min-height: 70vh;
+        
+    }
+    
+}
