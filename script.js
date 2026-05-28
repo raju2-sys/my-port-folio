@@ -95,7 +95,34 @@ hiddenSection.forEach(function(section){
 
         }
 
+})
+
+
+// cards animation
+const revealCard = document.querySelectorAll(".revealCard");
+
+window.addEventListener('scroll', function() {
+
+    revealCard.forEach(function(card){
+
+        const cardTop = card.getBoundingClientRect().top;
+
+        const screenPosition = window.innerHeight - 100;
+
+        if(cardTop < screenPosition){
+
+            card.classList.add("activeCard");
+
+        }
+        else{
+
+            card.classList.remove("activeCard");
+
+        }
+
     })
+
+})
 
 
 // glow active section nav link
@@ -179,3 +206,110 @@ if(localStorage.getItem("theme") === "dark"){
     themeBtn.setAttribute("title").textContent = "Light"
 
 }
+
+
+// typing effect in hero section
+const words = [
+
+    "Frontend Developer",
+    "UI Designer",
+    "Web Creator",
+    "Responsive Designer"
+
+]
+
+let wordIndex = 0;
+
+let charIndex = 0;
+
+let isDeleting = false;
+
+const typing = document.getElementById("typing");
+
+function typeEffect(){
+
+    let currentWord = words[wordIndex];
+
+    if(!isDeleting){
+
+        typing.textContent = currentWord.substring(0,charIndex);
+
+        charIndex++;
+
+        if(charIndex > currentWord.length){
+
+            isDeleting = true;
+
+            setTimeout(typeEffect,1000);
+
+            return;
+
+        }
+
+    }
+    else{
+
+        typing.TextContent = currentWord.substring(0,charIndex);
+
+        charIndex--;
+
+        if(charIndex < 0){
+
+            isDeleting = false;
+
+            wordIndex++;
+
+            if(wordIndex >= words.length){
+
+                wordIndex = 0;
+
+            }
+
+
+        }
+
+    }
+
+    setTimeout(typeEffect,100);
+
+
+}
+
+typeEffect();
+
+
+// counting effect
+
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach(function(counter){
+
+    counter.textContent = "0";
+
+    function updateCounter(){
+
+        const target = Number(counter.getAttribute("data-target"));
+
+        const current = Number(counter.innerText);
+
+        const increament = target / 100;
+
+        if(current < target){
+
+            counter.textContent = Math.ceil(current + increament);
+
+            setTimeout(updateCounter,200);
+
+        }
+        else{
+            
+            counter.textContent = target;
+
+        }
+
+
+    }
+
+    updateCounter();
+
+})
