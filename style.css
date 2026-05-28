@@ -162,7 +162,7 @@ section{
 
 
 .hero{
-    min-height: 85vh;
+    min-height: 100vh;
 
     display: flex;
     justify-content: center;
@@ -288,6 +288,66 @@ section{
     transform: translateY(-5px);
 
 }
+
+
+.statsSection{
+
+    width: 100%;
+
+    padding: 100px 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+}
+.statCard{
+
+    width: 250px;
+
+    padding: 40px 20px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+    text-align: center;
+
+    transition: 0.4s;
+
+}
+.statCard:hover{
+
+    transform: translateY(-10px);
+
+}
+.counter{
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+    color: #007bff;
+
+}
+.statCard p{
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
 
 
 .skills{
@@ -624,10 +684,76 @@ section{
 
 }
 
+.revealCard{
+
+    opacity: 0;
+
+    transform: translateY(60px);
+
+    transition: 0.8s ease;
+
+}
+.revealCard.activeCard{
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+.revealCard:nth-child(1){
+
+    transition-delay: 0.1s;
+
+}
+.revealCard:nth-child(2){
+
+    transition-delay: 0.3s;
+
+}
+.revealCard:nth-child(3){
+
+    transition-delay: 0.5s;
+
+}
+.revealCard:nth-child(4){
+
+    transition-delay: 0.7s;
+
+}
+
+
+/* typing effect in hero section */
+.typingText{
+
+    margin-top: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color : #0056d2;
+    min-height: 40px;
+
+}
+#typing::after{
+
+    content : "|";
+
+    animation : blink 0.7s infinite;
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        opacity : 0;
+
+    }
+
+}
 
 
 
-@media screen and (max-width : 768px) {
+@media screen and (min-width : 320px) and (max-width : 768px) {
 
     .menuBtn{
 
@@ -689,6 +815,18 @@ section{
         font-size: 34px;
 
     }
+
+    .statCard{
+
+        width: 100%;
+
+    }
+    .counter{
+        
+        font-size: 42px;
+
+    }
+
 
     .skills{
 
